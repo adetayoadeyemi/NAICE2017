@@ -1,0 +1,207 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content no-padding class="content-background">
+    <ion-grid [hidden]="screen!=='login'" style="min-height:100%">
+        <ion-row>
+            <ion-col padding text-center col-12 col-sm-8 offset-sm-2 ion-fixed>
+               
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+
+                      <ion-list>
+
+                      
+                          <ion-item>
+                            <ion-label class="form-label" floating>Email</ion-label>
+                            <ion-input type="email" formControlName="email"></ion-input>
+                          </ion-item>
+                          <div class="error-div" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.touched">
+                              <p>Please enter a valid Email</p>
+                          </div>
+                          
+                           <ion-item>
+                            <ion-label class="form-label" floating>Password</ion-label>
+                            <ion-input type="password" formControlName="password"></ion-input>
+                          </ion-item>
+                          <div class="error-div" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.touched">
+                              <p>Password is required</p>
+                          </div>
+                      
+                      </ion-list>
+
+                      <div>
+                          <button block ion-button type="submit" [disabled]="!loginForm.valid">Sign in</button>
+                      </div>
+                </form>
+
+                <div padding>
+                        <button (click)="screen='forgotpassword'" block ion-button clear style="color:white;text-decoration:underline">Forgot Password ?</button>
+                </div>
+
+                <div text-center>
+                        <p style="color:white">Or</p>
+                </div>
+
+                <div padding>
+                        <button (click)="screen='pinlogin'" block ion-button round outline style="color:white">Sign in with Pin</button>
+                </div>
+
+                <div padding text-center [hidden]="showCreate==='NO'">
+                    <p style="color:white">Don't have an account?</p>
+                     <button (click)="screen='signup'" ion-button round small>Register</button>
+                </div>
+            </ion-col>
+
+            
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid [hidden]="screen!=='pinlogin'" style="min-height:100%">
+        
+        <ion-row>
+            
+            <ion-col padding text-center col-12 col-sm-8 offset-sm-2>
+                
+                <form [formGroup]="pinForm" (ngSubmit)="pinLogin()">
+
+
+                      <ion-list>
+
+                          <ion-item>
+                            <ion-label class="form-label" floating>Pin</ion-label>
+                            <ion-input type="text" formControlName="authToken"></ion-input>
+                          </ion-item>
+                           <div class="error-div" *ngIf="!pinForm.controls.authToken.valid  && pinForm.controls.authToken.touched">
+                              <p>Pin is required</p>
+                          </div>
+                      
+                      </ion-list>
+
+                      <div>
+                          <button block ion-button type="submit" [disabled]="!pinForm.valid">Submit</button>
+                      </div>
+                </form>
+
+                <div>
+                          <p style="color:white">Or</p>
+                </div>
+
+                <div padding>
+                        <button (click)="screen='login'" block ion-button round outline style="color:white">Sign in with Credentials</button>
+                </div>
+
+                <div padding text-center [hidden]="showCreate==='NO'">
+                    <p style="color:white">Don't have an account?</p>
+                     <button (click)="screen='signup'" ion-button round small>Register</button>
+                </div>
+
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <ion-grid [hidden]="screen!=='forgotpassword'" style="min-height:100%">
+        
+        <ion-row>
+            
+            <ion-col padding text-center col-12 col-sm-8 offset-sm-2>
+                
+                <form [formGroup]="passwordForm" (ngSubmit)="getpassword()">
+
+
+                      <ion-list>
+
+                          <ion-item>
+                            <ion-label class="form-label" floating>Email</ion-label>
+                            <ion-input type="text" formControlName="email"></ion-input>
+                          </ion-item>
+                           <div class="error-div" *ngIf="!passwordForm.controls.email.valid  && passwordForm.controls.email.touched">
+                              <p>Email is required</p>
+                          </div>
+                      
+                      </ion-list>
+
+                      <div>
+                          <button block ion-button type="submit" [disabled]="!passwordForm.valid">Submit</button>
+                      </div>
+                </form>
+
+                <div>
+                          <p style="color:white">Or</p>
+                </div>
+
+                <div padding>
+                        <button (click)="screen='login'" block ion-button round outline style="color:white">Sign in with Credentials</button>
+                </div>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid [hidden]="screen!=='signup'" style="min-height:100%">
+        <ion-row>
+            <ion-col padding text-center col-12 col-sm-8 offset-sm-2>
+               
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+
+
+                      <ion-list>
+
+                          <ion-item>
+                            <ion-label class="form-label" floating>Email</ion-label>
+                            <ion-input type="email" formControlName="email"></ion-input>
+                          </ion-item>
+                           <div class="error-div" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.touched">
+                              <p>Please enter a valid email</p>
+                          </div>
+                          <ion-item>
+                            <ion-label class="form-label" floating>Firstname</ion-label>
+                            <ion-input type="text" formControlName="firstName"></ion-input>
+                          </ion-item>
+                          <div class="error-div" *ngIf="!signupForm.controls.firstName.valid  && signupForm.controls.firstName.touched">
+                              <p>Firstname is required</p>
+                          </div>
+                          <ion-item>
+                            <ion-label class="form-label" floating>Lastname</ion-label>
+                            <ion-input type="text" formControlName="lastName"></ion-input>
+                          </ion-item>
+                          <div class="error-div" *ngIf="!signupForm.controls.lastName.valid  && signupForm.controls.lastName.touched">
+                              <p>Lastname is required</p>
+                          </div>
+                          <ion-item>
+                            <ion-label class="form-label" floating>Password</ion-label>
+                            <ion-input type="password" formControlName="password"></ion-input>
+                          </ion-item>
+                          <div class="error-div" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.touched">
+                              <p>passoword is required</p>
+                          </div>
+                      
+                      </ion-list>
+
+                      <div>
+                          <button block ion-button type="submit" [disabled]="!signupForm.valid">Submit</button>
+                      </div>
+                </form>
+
+                <div padding>
+                        <button (click)="screen='pinlogin'" block ion-button round outline style="color:white">Sign in with Pin</button>
+                </div>
+
+                <div padding text-center>
+                    <p style="color:white">Already have an account?</p>
+                     <button (click)="screen='login'" ion-button round small>Sign in</button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    
+
+</ion-content>

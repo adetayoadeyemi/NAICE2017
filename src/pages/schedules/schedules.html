@@ -1,0 +1,117 @@
+<!--
+  Generated template for the Schedules page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+
+    <ion-title>Schedule</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="goToNotifications()">
+          <ion-icon name="mail">
+          </ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  
+
+</ion-header>
+
+<ion-content padding-bottom class="content-black">
+
+     <ion-refresher (ionRefresh)="doUpdate($event)">
+        <ion-refresher-content></ion-refresher-content>
+     </ion-refresher>
+
+     <ion-grid  no-padding style="min-height:100%" class="grid-background">
+        <ion-list class="faded-list" *ngFor="let schedule of schedules" [hidden]="scheduleToShow!==schedule.day" no-lines>
+
+
+
+            <span [hidden]="!schedule.entries?.length>0" *ngFor="let entry of schedule.entries" margin-bottom  no-margin no-padding class="transparent-list">
+
+                <ion-item-divider style="border:none" class="transparent-divider">{{entry.minTimeValue.substring(0,5)}} - {{entry.maxTimeValue.substring(0,5)}}</ion-item-divider>
+
+                <ion-item-sliding class="transparent-sliding-item" *ngFor="let event of entry.events" margin-bottom>
+
+                  <ion-item class="transparent-item" tappable (click)="toggleEvent(event)">
+                      <div item-left>
+                        <h2 class="schedule-title">{{event.name}}</h2>
+                        <h2 *ngFor="let venue of event.venues" class="schedule-venue">Venue : {{venue.name}}</h2>
+                      </div>
+                      <div item-right>
+                        <p class="schedule-venue">{{event.startTimeValue.substring(0,5)}} - {{event.endTimeValue.substring(0,5)}}</p>
+                      </div>
+                  </ion-item>
+
+                  <ion-item [hidden]="shownEvent!==event" class="hidden-item">
+                            <div no-margin no-padding>
+                                <h5>Description</h5>
+                                <p text-wrap ion-item class="transparent-item">{{event.description}}</p>
+
+                                <h5 [hidden]="event.speakers.length<1">Speaker(s)</h5>
+                                <p text-wrap ion-item class="transparent-item" *ngFor="let speaker of event.speakers">
+                                  {{speaker.firstName}} {{speaker.lastName}}
+                                </p>
+                            
+                                <h5>Venue(s)</h5>
+                                <p text-wrap ion-item class="transparent-item">
+                                  <span *ngFor="let venue of event.venues">{{venue.name+', '}}</span>
+                                </p>
+
+                              <h5 [hidden]="!event.interactive">Action</h5>
+                                <p text-wrap ion-item class="transparent-item" [hidden]="!event.interactive">
+                                  <span>This is an interactive event</span>
+                                  <button ion-button (click)="joinConversation(event)">Join the conversation</button>
+                                </p>
+                            </div>
+                  </ion-item>
+
+
+                    <ion-item-options side="right">
+                      <button [hidden]="event.fav!==2"  ion-button color="primary" (click)="removeFav(event)">
+                        <ion-icon class="fa fa-star" large></ion-icon>
+                      </button>
+                      <button [hidden]="event.fav===2" ion-button color="dark" (click)="addToFav(event)">
+                        <ion-icon class="fa fa-star-o" large></ion-icon>
+                      </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </span>
+
+            <span [hidden]="schedule.entries?.length>0" style="height:100%;">
+
+                  <ion-grid style="height:100%;justify-content: center;" no-padding class="grid-background">
+                    <ion-row class="faded-list">
+                        <ion-grid style="justify-content: center;">
+                          <ion-col col-12 style="text-align:center">
+                               <p style="color:white;text-align:center;margin:10px">No Favourite Event yet, use the Favourite button to add one</p>
+                          </ion-col>
+                        </ion-grid>
+                    </ion-row>  
+                </ion-grid>
+                
+            </span>
+
+
+          </ion-list>
+     </ion-grid>
+
+</ion-content>
+
+<ion-footer no-padding>
+    <ion-grid no-padding no-margin>
+        <ion-row no-padding no-margin>
+          <ion-col [ngClass]="{'s-item-active':scheduleToShow==myschedule.day}" :span="2" class="s-item" *ngFor="let myschedule of schedules" tappable (click)="scheduleTapped(myschedule.day)">
+            <p class="day-name">{{myschedule.day|date:'EEE'}}</p>
+            <p style="padding:0;margin:0">{{myschedule.day|date:'MM/d'}}</p>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

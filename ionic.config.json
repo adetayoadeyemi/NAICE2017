@@ -1,5 +1,11 @@
 {
   "name": "NAICE",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "809fb16a",
+  "type": "ionic-angular",
+  "proxies":[
+    {
+      "path":"/api",
+      "proxyUrl":"http://127.0.0.1:9000"
+    }
+  ]
 }

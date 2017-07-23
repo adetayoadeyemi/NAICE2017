@@ -1,14 +1,130 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      
+      
+    <ion-title>NAICE</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="goToPage(note)">
+          <ion-icon name="create">
+          </ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <ion-buttons end>
+      <button ion-button (click)="goToPage(notifications)">
+          <ion-icon name="mail">
+          </ion-icon>
+      </button>
+    </ion-buttons>
+  
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="content-background">
+  <ion-grid class="transparent-grid" style="height:40%;padding-top:6px;padding-bottom:6px">
+        <ion-slides [hidden]="hideNote" #mainslide autoplay="2000" loop="true" speed="3000" no-padding no-margin>
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban1.jpg"/>
+                    <div class="card-title-small text-con"><span class="text-con">• Panel Discussions •</span></div>
+                </ion-card> 
+              </ion-slide>  
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban15"/>
+                    <div class="card-title-small text-con">• Women Professional Development Interactive discussions •</div>
+                </ion-card> 
+              </ion-slide>   
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban3.jpg"/>
+                </ion-card> 
+              </ion-slide>  
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban50"/>
+                    <div class="card-title-small text-con">• World Class Exhibitions •</div>
+                </ion-card> 
+              </ion-slide>  
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban5.jpg"/>
+                    <div class="card-title-small text-con">• Awards and recognitions •</div>
+                </ion-card> 
+              </ion-slide>  
+              <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban6.jpg"/>
+                    <div class="card-title text-con">• 146 technical presentations in 24 technical categories •</div>
+                </ion-card> 
+              </ion-slide>   
+               <ion-slide no-padding no-margin>
+                <ion-card no-padding no-margin>
+                    <img  src="img/banners/ban7.jpg"/>
+                    <div class="card-title text-con">• Students Activities •</div>
+                </ion-card> 
+              </ion-slide>      
+        </ion-slides> 
+  </ion-grid>
+
+  <ion-grid style="height:60%;padding-top:0">
+    <ion-row style="height:65%">
+        <ion-col col-4 class="nav-box light-blue" tappable (click)="goToMainPages(speakers)">
+            <ion-icon class="icon-small fa fa-microphone"></ion-icon>
+            <p class="icon-text">Speakers</p>
+        </ion-col>
+        <ion-col col-4 class="nav-box light-green" tappable (click)="goToMainPages(papers)">
+            <ion-icon class="icon-small" name="paper"></ion-icon>
+            <p class="icon-text">Papers</p>
+        </ion-col>
+        <ion-col col-4 class="nav-box light-blue" tappable (click)="goToPage(navigation)">
+            <ion-icon class="icon-small" name="pin"></ion-icon>
+             <p class="icon-text">Navigation</p>
+        </ion-col>
+
+
+        <ion-col col-3 class="nav-box light-red" tappable (click)="goToPage(brochureList)">
+             <ion-icon class="icon-small" name="book"></ion-icon>
+             <p class="icon-text">Brochure</p>
+        </ion-col>
+        <ion-col col-6 class="nav-box light-green" tappable (click)="goToMainPages(exhibitions)">
+             <ion-icon class="icon-small fa fa-handshake-o"></ion-icon>
+             <p class="icon-text">Exhibition</p>
+        </ion-col>
+        <ion-col col-3 class="nav-box light-red" tappable (click)="goToPage(connect)">
+             <ion-icon class="icon-small" name="pulse"></ion-icon>
+            <p class="icon-text">Connect</p>
+        </ion-col>
+    </ion-row>
+    <ion-row style="height:35%">
+        <ion-col col-6 class="nav-box light-blue" tappable (click)="goToMainPages(schedules)">
+            <ion-icon class="icon-large" name="calendar"></ion-icon>
+            <p class="icon-text">Schedule</p>
+        </ion-col>
+        <ion-col col-6 class="nav-box light-blue" tappable (click)="goToPage(myAccount)">
+             <ion-icon class="icon-large" name="person"></ion-icon>
+             <p class="icon-text">My NAICE</p>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
 </ion-content>
+
+<ion-footer>
+  <div style="background:#0051BA;height:40px" no-padding>
+      <ion-slides #notificationsslide no-margin no-padding autoplay="500" loop="true" speed="10000">
+            <ion-slide *ngFor="let notification of scrollingNotifications" no-margin no-padding class="footer-style">
+              <p no-margin no-padding class="footer-info">{{notification}}</p>
+            </ion-slide>
+      </ion-slides>
+  </div>
+</ion-footer>

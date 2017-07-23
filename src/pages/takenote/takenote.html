@@ -1,0 +1,59 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Take note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+    <ion-grid [hidden]="isEdit" class="transparent-grid" style="min-height:100%">
+        <ion-row>
+            <ion-col>
+                    <form [formGroup]="noteForm" (ngSubmit)="takeNote()">
+                        <ion-list no-lines>
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Subject</ion-label>
+                                    <ion-textarea formControlName="subject" placeholder="Enter note subject here" rows="2" clearInput></ion-textarea>
+                                </ion-item>
+
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Content</ion-label>
+                                    <ion-textarea (keyup)="resize()" placeholder="Enter note content here" formControlName="body" #myInput id="myInput"  maxLength="1000" clearInput></ion-textarea>
+                                </ion-item>
+                        </ion-list>
+                        <div>
+                                <button block ion-button type="submit" [disabled]="!noteForm.valid">Add note</button>
+                        </div>
+
+                    </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid [hidden]="!isEdit" class="transparent-grid" style="min-height:100%">
+        <ion-row>
+            <ion-col>
+                    <form [formGroup]="noteForm" (ngSubmit)="updateNote()">
+                        <ion-list no-lines>
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Subject</ion-label>
+                                    <ion-textarea formControlName="subject" rows="2" clearInput></ion-textarea>
+                                </ion-item>
+
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Content</ion-label>
+                                    <ion-textarea (keyup)="resize()" placeholder="Enter note content here" formControlName="body" #myInput id="myInput"  maxLength="1000" clearInput></ion-textarea>
+                                </ion-item>
+                        </ion-list>
+                        <div>
+                                <button block ion-button type="submit" [disabled]="!noteForm.valid">Update note</button>
+                        </div>
+
+                    </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

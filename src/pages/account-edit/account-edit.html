@@ -1,0 +1,66 @@
+<!--
+  Generated template for the AccountEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+
+    <ion-grid style="min-height:100%" class="transparent-grid">
+        <form [formGroup]="updateForm" (ngSubmit)="updateData()">
+            <ion-list>
+
+                <ion-list-header no-margin class="form-header">
+                      <h1>Bio</h1>
+                  </ion-list-header>
+                <ion-item>
+                  <ion-label color="primary" stacked>First name</ion-label>
+                  <ion-input formControlName="firstName" type="text" clearInput></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary" stacked>Last name</ion-label>
+                  <ion-input formControlName="lastName" type="text" clearInput></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary" stacked>Email</ion-label>
+                  <ion-input formControlName="emailAddress" type="email" clearInput></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary" stacked>Linked in</ion-label>
+                  <ion-input formControlName="social" type="text" clearInput></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary" stacked>Company</ion-label>
+                  <ion-input formControlName="company" type="text" clearInput></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary" stacked>Profile</ion-label>
+                  <ion-textarea (keyup)="resize()" formControlName="profile" rows="2" #myInput id="myInput"  maxLength="1000" clearInput></ion-textarea>
+                </ion-item>
+
+
+
+            </ion-list>
+
+            
+            <div>
+                 <button block ion-button type="submit" [disabled]="!updateForm.valid">Submit</button>
+            </div>
+        </form>
+    </ion-grid>
+
+</ion-content>

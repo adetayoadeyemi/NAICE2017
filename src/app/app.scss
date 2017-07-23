@@ -1,5 +1,7 @@
 // http://ionicframework.com/docs/v2/theming/
 
+@import 'font-awesome';
+
 
 // App Global Sass
 // --------------------------------------------------
@@ -14,3 +16,128 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+    
+
+    .content-background{
+        background: url("../img/b.jpg") no-repeat center center fixed!important;
+        background-size: cover!important;
+    }
+
+    .content-black{
+        background: url("../img/b.jpg") no-repeat center center fixed!important;
+        background-size: cover!important;
+    }
+
+    .grid-background{
+        background: transparent;
+        min-height: 100%!important;
+        background: rgba(0, 0, 0,0.8)!important;
+    }
+
+    .faded-list{
+        background: transparent;
+    }
+    
+    .footer-info{
+        color: white;
+    }
+
+    .transparent-item{
+        background: transparent!important;
+        border-bottom: 1px grey solid!important;
+    }
+
+    .transparent-grid{
+        background: rgba(0, 0, 0,0.8)!important;
+    }
+
+    .transparent-sliding-item{
+        background: transparent!important;
+    }
+    .transparent-list{
+        background: transparent!important;
+    }
+    .transparent-divider{
+        background: rgba(0, 0, 0,0.4)!important;
+        font-size: 1.4em!important;
+        color:#0051BA!important;
+        font-weight: bold;
+    }
+
+    .name{
+    
+            
+            color:white!important;
+            font-weight: bold!important;
+    
+    }
+
+    .text{
+        
+        color:white!important;
+        font-weight: bold!important;
+    }
+
+    .text-small{
+        
+        color:white!important;
+        font-weight: bold!important;
+    }
+
+    .social-link{
+        font-size: 1.0em;
+        color: #0051BA;
+    }
+
+    .icon-small{
+                font-size: 40px;
+                margin-top: auto;
+            }
+
+    .red{
+        background: red;
+    }
+    .blue{
+        background: blue;
+    }
+    .yellow{
+        background: yellow;
+    }
+    .green{
+        background: green;
+    }
+    .purple{
+        background: purple;
+    }
+    
+    .side-menu-item{
+        color: white
+    }
+
+    .nav-header{
+        background:rgba(0, 0, 0,0.7)!important;
+        color:#0051BA!important;
+        p{
+            color: white!important;
+            font-size: 0.8em;
+        
+        }
+        h1{
+            font-size: 1.2em;
+        }
+    }
+
+
+    .side-nav-header{
+        background:#0051BA!important;
+        color:white!important;
+        p{
+            color: white!important;
+            font-size: 0.8em;
+        
+        }
+        h1{
+            font-size: 1.2em;
+            color: white!important;
+        }
+    }

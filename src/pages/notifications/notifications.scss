@@ -1,0 +1,29 @@
+page-notifications {
+   .card-style{
+        width:100%;
+        padding-right:10px!important;
+        padding-left:10px!important;
+        padding-top: 5px!important;
+        padding-bottom: 0!important;
+    }
+
+
+    .date{
+            
+            font-size: 0.9em!important;
+            color:#0051BA!important;
+            margin-bottom: 8px!important;
+    
+    }  
+
+    .mytext{
+        color: white!important;
+        overflow: hidden!important;
+        white-space: nowrap!important;
+        text-overflow: ellipsis!important;
+    }   
+
+    .hidden-col{
+        background: black
+    }
+}

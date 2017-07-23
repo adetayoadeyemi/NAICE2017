@@ -1,0 +1,67 @@
+<!--
+  Generated template for the NotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Notes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+
+        <ion-grid [hidden]="!notes?.length>0" style="min-height:100%" class="transparent-grid">
+
+              <ion-list class="transparent-list" no-lines>
+
+
+                      <ion-item-sliding class="transparent-sliding-item" *ngFor="let note of notes">
+
+                        <ion-item class="transparent-item" (tap)="toggleNote(note)">
+                            <span>Last Updated: {{note.creationDate|date:'short'}}</span>
+                            <p text-wrap>{{note.subject}}</p>
+                        </ion-item>
+
+                        <ion-item [hidden]="shownNote!==note" class="hidden-item">
+                                  <div no-margin no-padding>
+                                      <h2>Body</h2>
+                                      <p text-wrap ion-item class="transparent-item">{{note.body}}</p>
+                                  </div>
+                        </ion-item>
+
+
+                          <ion-item-options side="right">
+                            <button ion-button color="primary">
+                              <ion-icon class="fa fa-pencil" (click)="editNote(note)"></ion-icon>
+                            </button>
+                            <button ion-button color="danger">
+                              <ion-icon class="fa fa-trash-o" (click)="deleteNote(note)"></ion-icon>
+                            </button>
+                          </ion-item-options>
+                      </ion-item-sliding>
+
+
+                </ion-list>
+     </ion-grid>
+
+
+     <ion-grid [hidden]="notes?.length>0" style="height:100%" class="empty-grid transparent-grid">
+        <ion-row>
+          <ion-col col-12 text-center>
+              <p style="color:white">No Notes yet, tap the Add button to create one</p>
+          </ion-col>
+        </ion-row>
+          
+     </ion-grid>
+</ion-content>
+
+<ion-footer no-padding no-margin>
+      <ion-fab right bottom (tap)="addNote()">
+          <button ion-fab color="primary"><ion-icon class="fa fa-plus"></ion-icon></button>
+      </ion-fab>
+</ion-footer>

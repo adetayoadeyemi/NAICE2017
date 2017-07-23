@@ -1,0 +1,63 @@
+page-schedules {
+    .s-item{
+        background: #0051BA;
+        color: white;
+        text-align: center;
+        padding-top: 5px!important;
+        padding-bottom: 8px!important;
+        border-right: 1px white solid
+    }
+
+    .s-item-active{
+        background:#2B60DE;
+        color: white;
+        text-align: center;
+        padding-top: 5px!important;
+        padding-bottom: 8px!important;
+        font-size: 1.2em;
+    }
+
+
+    .last-s-item{
+        background: #0051BA;
+        color: white;
+        text-align: center;
+        padding-top: 5px!important;
+        padding-bottom: 8px!important;
+        
+    }
+
+    .day-name{
+        font-size: 1.0em;
+        padding: 0;
+        margin: 0;
+        
+    }
+
+    
+    .schedule-title{
+        font-size: 1.0em;
+        color:white;
+        font-weight: bold;
+    }
+    .schedule-venue{
+        font-size: 0.8em;
+        color:#0051BA;
+        font-weight: bold;
+    }
+    .hidden-item{
+        background:black!important;
+        div{
+            background:transparent!important;
+        }
+        p{
+            background:transparent!important;
+            color:white!important;
+            text-align:center
+        }
+        h5{
+            background:transparent!important;
+            color:#0051BA!important;
+        }
+    }
+}

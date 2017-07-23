@@ -1,0 +1,47 @@
+page-login {
+    ion-grid {
+        height: 100%!important;
+        justify-content: center!important;
+        background: rgba(0, 0, 0,0.6)!important;
+        padding-top: 10px!important;
+    }
+
+    
+
+    ion-item{
+        background: transparent!important;
+    }
+
+    ion-label{
+        color: white!important;
+    }
+
+    ion-input{
+        color: white;
+    }
+
+    .error-div{
+        margin-top: 0;
+        padding-top: 0;
+        
+        p{
+            color: white;
+            margin-top: 0;
+            padding-top: 0
+        }
+    }
+
+    .login-error-div{
+        margin-top: 10px!important;
+        padding-top: 0;
+        
+        p{
+            color: white!important;
+            margin-top: 10px!important;
+            padding-top: 0;
+            font-size: 1.8em!important;
+        }
+    }
+
+    
+}

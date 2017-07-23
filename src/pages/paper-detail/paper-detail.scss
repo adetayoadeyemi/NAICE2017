@@ -1,0 +1,50 @@
+page-paper-detail {
+    ion-card-content{
+        p{
+            color: white!important;
+            text-align: justify!important;
+            
+        }
+
+        h2{
+            color: white!important;
+            text-align: justify!important;
+            margin-bottom: 20px!important;
+        }
+    }
+
+    .caption{
+         color: #0051BA!important;
+        text-align: justify!important;
+    }
+
+    ion-card{
+        width: 100%!important;
+        ion-item{
+            background: rgba(0, 0, 0,0.3)!important;
+
+            h2{
+                color: white!important;
+            }
+            p{
+                color: white!important;
+            }
+        }
+    }
+
+    .cat-ball-text{
+        color: #0051BA;
+        font-weight: bold;
+        font-size: 2.5em;
+}
+
+.round-ball{
+    background:white;
+    text-align:center;
+    height:45px;
+    width:45px;
+    border-radius:50%;
+    margin:0!important;
+    padding:0!important;
+}
+}

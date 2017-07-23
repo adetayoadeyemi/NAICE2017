@@ -1,0 +1,38 @@
+page-speaker-detail {
+
+    ion-content{
+        padding: 5px!important;
+    }
+
+    ion-card{
+        width: 100%!important;
+        ion-item{
+            background: rgba(0, 0, 0,0.3)!important;
+
+            h2{
+                color: white!important;
+            }
+            p{
+                color: white!important;
+            }
+        }
+    }
+
+    ion-card-content{
+        color: white;
+
+        h1{
+            color: white!important;
+        }
+
+        p{
+            color: white!important;
+			text-align: justify!important;
+        }
+        ion-card-title{
+            color: white!important;
+        }
+    }
+
+    
+}

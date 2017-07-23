@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>New Message</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+    <ion-grid [hidden]="isEdit" class="transparent-grid" style="min-height:100%">
+        <ion-row>
+            <ion-col>
+                    <form [formGroup]="messageForm" (ngSubmit)="submitPost()">
+                        <ion-list no-lines>
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Subject</ion-label>
+                                    <ion-textarea formControlName="subject" placeholder="Enter message subject here" rows="2" clearInput></ion-textarea>
+                                </ion-item>
+
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Content</ion-label>
+                                    <ion-textarea (keyup)="resize()" placeholder="Enter message content here" formControlName="body" #myInput id="myInput"  maxLength="1000" clearInput></ion-textarea>
+                                </ion-item>
+                        </ion-list>
+                        <div>
+                                <button block ion-button type="submit" [disabled]="!messageForm.valid">Send</button>
+                        </div>
+
+                    </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

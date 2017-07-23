@@ -1,0 +1,27 @@
+<ion-header no-shadow color="primary">
+
+  <ion-navbar no-border-bottom color="primary">
+    <ion-title>Navigation</ion-title>
+    <ion-buttons end>
+      <ion-spinner *ngIf="!mediaLoaded" color="light"></ion-spinner>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-top padding-bottom class="content-background">
+  <div #imageParent class="pinch-zoom-container">
+    <img #image dimg="medium" class="pinch-zoom-image" [src]="src" alt="loading.." (load)="setMediaLoaded()">
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div style="background:#0051BA;height:40px" no-padding>
+      <ion-slides #notificationsslide no-margin no-padding autoplay="500" loop="true" speed="10000">
+            <ion-slide *ngFor="let notification of scrollingNotifications" no-margin no-padding class="footer-style">
+              <p no-margin no-padding class="footer-info">{{notification}}</p>
+            </ion-slide>
+      </ion-slides>
+  </div>
+</ion-footer>

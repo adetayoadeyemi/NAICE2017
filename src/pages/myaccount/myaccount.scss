@@ -1,0 +1,44 @@
+page-myaccount {
+
+    
+
+    .user-details{
+       p{
+           color: white!important;
+       }
+    }
+
+    .action-text{
+        color: white!important
+    }
+ 
+
+    .footer-info{
+        color: white;
+    }
+
+
+
+           @media (min-width: 567px) {
+               
+
+            }
+
+            /* Small devices such as phone */
+            @media (max-width: 567px) {
+
+                 
+                
+            }
+
+            
+
+            .nav-header{
+                background:rgba(0, 0, 0,0.7)!important;
+                color:#0051BA!important;
+                font-size: 1.4em!important;
+                font-weight: bold;
+                border: none!important
+            }
+
+}

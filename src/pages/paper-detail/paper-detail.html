@@ -1,0 +1,57 @@
+<!--
+  Generated template for the PaperDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Abstract</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+    <ion-grid class="transparent-grid" style="min-height:100%">
+        <ion-card class="transparent-item" no-padding no-margin>
+            <ion-item>
+                <h2 *ngFor="let author of paper.authors">Author: {{author.firstName}} {{author.lastName}}</h2>
+                <p>{{author?.company}}</p>
+
+                <button clear ion-button item-right icon-only (click)="sendMessage()">
+                   <ion-icon style="color:white" name="mail"></ion-icon>
+               </button>
+
+                <button [hidden]="!isFavourite" clear ion-button item-right icon-only (click)="removeFav()">
+                   <ion-icon  class="fa fa-star"></ion-icon>
+               </button>
+               <button [hidden]="isFavourite" clear ion-button item-right icon-only (click)="addToFav()">
+                   <ion-icon style="color:white"  class="fa fa-star-o"></ion-icon>
+               </button>
+
+            </ion-item>
+
+            <ion-card-content>
+                <p class="caption">Category:</p>
+                <h2>{{paper.paperGroup.groupName}}</h2>
+                <p class="caption">Topic:</p>
+                <h2>{{paper.topic}}</h2>
+                <p class="caption">Abstract:</p>
+                <p>{{paper.paperAbstract}}</p>
+            </ion-card-content>
+
+            
+
+        </ion-card>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <div class="transparent-item" style="height:50px" no-padding padding-right padding-left>
+        <button block ion-button color="primary" (click)="ratePaper()">
+            Rate this Paper
+        </button>          
+  </div>
+</ion-footer>

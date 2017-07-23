@@ -1,0 +1,89 @@
+<!--
+  Generated template for the Myaccount page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>My Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+
+  <ion-grid class="transparent-grid" style="min-height:100%">
+
+        
+        <ion-list class="transparent-list user-details" margin-bottom no-lines>
+            <ion-list-header no-margin class="nav-header">
+              Account Details
+            </ion-list-header>
+            <p ion-item class="transparent-item">First name: {{currentUser?.firstName}}</p>
+            <p ion-item class="transparent-item">Last name: {{currentUser?.lastName}}</p>
+            <p ion-item class="transparent-item">Email: {{currentUser?.emailAddress}}</p>
+            <p ion-item class="transparent-item">Status: logged in
+              <button ion-button type="submit" item-right round small (click)="logout()">Logout</button>
+            </p>
+        </ion-list>
+
+    
+        <ion-list class="transparent-list" margin-bottom no-lines>
+            <ion-list-header no-margin class="nav-header">
+                Favourite
+            </ion-list-header>
+            <button class="transparent-item action-text" ion-item (click)="openFav('Speakers')">
+              <ion-icon item-left class="fa fa-microphone"></ion-icon>
+                Speakers
+            </button>
+            
+            <button class="transparent-item action-text" ion-item (click)="openFav('Papers')">
+              <ion-icon item-left name="paper"></ion-icon>
+              Papers
+            </button>
+
+            <button class="transparent-item action-text" ion-item (click)="openFav('Schedules')">
+              <ion-icon item-left name="calendar"></ion-icon>
+              Events
+            </button>
+
+             <button class="transparent-item action-text" ion-item (click)="openFav('Exhibitions')">
+              <ion-icon item-left class="fa fa-handshake-o"></ion-icon>
+              Exhibitors
+            </button>
+
+
+        </ion-list>
+
+        <ion-list class="transparent-list" margin-bottom no-lines>
+            <ion-list-header no-margin class="nav-header">
+                Activities
+            </ion-list-header>
+
+            <button class="transparent-item action-text" ion-item (click)="openAction('NotificationsPage')">
+              <ion-icon item-left name="notifications"></ion-icon>
+              Notifications
+            </button>
+
+            <button class="transparent-item action-text" ion-item (click)="openAction('NotePage')">
+              <ion-icon item-left class="fa fa-sticky-note"></ion-icon>
+              My notes
+            </button>
+        </ion-list>
+
+  </ion-grid>
+
+    
+
+
+    
+</ion-content>
+
+<ion-footer>
+  <ion-fab right bottom (tap)="editAccount()">
+          <button ion-fab color="primary"><ion-icon class="fa fa-pencil-square-o"></ion-icon></button>
+  </ion-fab>
+</ion-footer>

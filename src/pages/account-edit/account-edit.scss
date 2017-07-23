@@ -1,0 +1,33 @@
+page-account-edit {
+
+    ion-item{
+        background: transparent!important;
+    }
+
+    ion-label{
+        color: white!important;
+    }
+
+    ion-input{
+        color: white;
+    }
+
+    ion-grid{
+        padding-top: 10px!important;
+        background: rgba(0, 0, 0,0.6);
+    }
+
+    ion-textarea{
+        color: white;
+        text-align: justify;
+    }
+
+
+    .form-header{
+        background:rgba(0, 0, 0,0.7)!important;
+        color:#0051BA!important;
+        h1{
+            color:#0051BA!important;
+        }
+    }
+}

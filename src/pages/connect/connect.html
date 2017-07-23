@@ -1,0 +1,74 @@
+<!--
+  Generated template for the Speakers page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary" no-border-bottom>
+      <ion-title>Connect</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top color="primary">
+        <ion-searchbar color="light"
+                      (ionInput)="searchSubjects($event)"
+                      placeholder="Search">
+        </ion-searchbar>    
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-black">
+
+     <ion-refresher (ionRefresh)="doUpdate($event)">
+        <ion-refresher-content></ion-refresher-content>
+     </ion-refresher>
+
+     
+     <ion-grid no-padding class="grid-background">
+        
+            <ion-list padding class="faded-list">
+
+                <ion-card *ngFor="let subject of subjects"  tappable (click)="gotoDetails(subject)" class="transparent-item card-style" no-padding no-margin margin-bottom>
+                    <ion-card-content  no-padding no-margin>
+                        <ion-grid no-padding no-margin>
+                        <ion-row no-padding no-margin>
+
+                            <ion-col col-2 col-sm-1 class="col-style">
+                            <div style="background:blue;text-align:center;height:45px;width:45px;border-radius:50%;">
+                                <h1 class="cat-ball-text">{{subject.firstName.charAt(0).toUpperCase()}}</h1>
+                            </div>
+                          </ion-col>
+
+                            <ion-col col-10 no-padding no-margin class="card-style">
+
+                                <p class="name mytext">{{subject.firstName}} {{subject.lastName}}</p>
+                                <span class="social-link"><i class="fa fa-linkedin-square speaker-social"></i>{{subject.social}}</span>
+                                <p class="text mytext">{{subject.company}}</p>
+                            
+                            </ion-col>
+
+                        </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+
+                </ion-card>
+
+            </ion-list>
+
+     </ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+  <div style="background:#0051BA;height:40px" no-padding>
+      <ion-slides no-margin no-padding autoplay="500" loop="true" speed="10000">
+            <ion-slide *ngFor="let notification of scrollingNotifications" no-margin no-padding class="footer-style">
+              <p no-margin no-padding class="footer-info">{{notification}}</p>
+            </ion-slide>
+      </ion-slides>
+  </div>
+</ion-footer>

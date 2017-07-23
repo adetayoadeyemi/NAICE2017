@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CreatepostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>New Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content-background">
+    <ion-grid class="transparent-grid" style="min-height:100%">
+        <ion-row>
+            <ion-col>
+                    <form [formGroup]="postForm" (ngSubmit)="submitPost()">
+                        <ion-list no-lines>
+
+                                  <ion-item class="transparent-item">
+                                    <ion-label color="primary">Type</ion-label>
+                                        <ion-select formControlName="type">
+                                          <ion-option value="Comment">Comment</ion-option>
+                                          <ion-option value="Question">Question</ion-option>
+                                        </ion-select>
+                                    </ion-item>
+
+                                <ion-item class="transparent-item">
+                                    <ion-label color="primary" stacked>Post</ion-label>
+                                    <ion-textarea (keyup)="resize()" placeholder="Enter post content here" formControlName="post" #myInput id="myInput"  maxLength="1000" clearInput></ion-textarea>
+                                </ion-item>
+                        </ion-list>
+                        <div>
+                                <button block ion-button type="submit" [disabled]="!postForm.valid">Submit</button>
+                        </div>
+
+                    </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
